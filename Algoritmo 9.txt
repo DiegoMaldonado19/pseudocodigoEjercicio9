@@ -1,0 +1,60 @@
+Algoritmo algoritmo9
+	Dimension temperatura1[10000]
+	Dimension temperatura2[10000]
+	Dimension temp1[10000]
+	Dimension temp2[10000]
+	Definir contadorTemperatura1 Como Entero
+	Definir contadorTemperatura2 Como Entero
+	Definir contadorTemp1 Como Entero
+	Definir contadorTemp2 Como Entero
+	Definir sumaTemp1 Como Entero
+	Definir sumaTemp2 Como Entero
+	Definir total Como Entero
+	Definir salir Como Logico
+	salir <- Falso
+	contadorTemperatura1 <- 0
+	contadorTemperatura2 <- 0
+	contadorTemp1 <- 0
+	contadorTemp2 <- 0
+	sumaTemp1 <- 0
+	sumaTemp2 <- 0
+	total <- 0
+	Repetir
+		Escribir 'Ingrese temperatura1'
+		Leer temperatura1[contadorTemperatura1+1]
+		contadorTemperatura1 <- contadorTemperatura1+1
+		Si temperatura1[contadorTemperatura1]==0 Entonces
+			salir <- Verdadero
+		SiNo
+			salir <- Falso
+		FinSi
+		Escribir 'Ingrese temperatura2'
+		Leer temperatura2[contadorTemperatura2+1]
+		contadorTemperatura2 <- contadorTemperatura2+1
+	Hasta Que salir=Verdadero
+	Para i<-1 Hasta contadorTemperatura1 Hacer
+		Si temperatura1[i]>5 Y temperatura1[i]<=15 Entonces
+			temp1[i] <- temperatura1[i]
+			contadorTemp1 <- contadorTemp1+1
+		FinSi
+	FinPara
+	Para i<-1 Hasta contadorTemperatura2 Hacer
+		Si temperatura2[i]>5 Y temperatura2[i]<=15 Entonces
+			temp2[i] <- temperatura2[i]
+			contadorTemp2 <- contadorTemp2+1
+		FinSi
+	FinPara
+	Para i<-1 Hasta contadorTemp1 Hacer
+		sumaTemp1 <- sumaTemp1+temp1[i]
+	FinPara
+	Para i<-1 Hasta contadorTemp2 Hacer
+		sumaTemp2 <- sumaTemp1+temp2[i]
+	FinPara
+	total <- sumaTemp1+sumaTemp2
+	promedio <- (total)/(contadorTemp1+contadorTemp2)
+	Si contadorTemp1==0 Y contadorTemp2==0 O promedio==0 Entonces
+		Escribir 'No se registraron temperaturas entre 5 y 15 grados'
+	SiNo
+		Escribir 'El promedio de temperaturas comprendidas entre 5 y 15 grados es de: ',promedio
+	FinSi
+FinAlgoritmo
